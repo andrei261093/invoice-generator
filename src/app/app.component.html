@@ -5,13 +5,13 @@
     <div class="col-md-4"></div>
   </div>
   
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Nume furnizor</span>
         </div>
-        <input type="text" class="form-control" [(ngModel)]="supplier.supplierName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input type="text" class="form-control" [(ngModel)]="supplier.name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
@@ -20,13 +20,13 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Serie:</span>
         </div>
-        <input [(ngModel)]="series" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="invoice_series" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerName" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">Nume Client</span>
         </div>
@@ -34,13 +34,13 @@
     </div>
   </div>
 
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span  class="input-group-text" id="inputGroup-sizing-sm">Sediu</span>
         </div>
-        <input [(ngModel)]="supplier.supplierAddress" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="supplier.address" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
@@ -49,13 +49,13 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Numar:</span>
         </div>
-        <input [(ngModel)]="number" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="invoice_number" type="number" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerAddress" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.address" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">Sediu</span>
         </div>
@@ -63,28 +63,30 @@
     </div>
   </div>
 
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">CIF</span>
         </div>
-        <input [(ngModel)]="supplier.supplierCIF" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="supplier.cif" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-2" style="text-align: center">
-      <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Data:</span>
+      <div class="input-group">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><fa name="calendar"></fa></button>
         </div>
-        <input [(ngModel)]="date" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="invoice_date" ngbDatepicker #d="ngbDatepicker">
+       
       </div>
     </div>
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerCIF" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.cif" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">CIF</span>
         </div>
@@ -92,13 +94,13 @@
     </div>
   </div>
 
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Nr Reg Com</span>
         </div>
-        <input [(ngModel)]="supplier.supplierRegCom" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="supplier.regCom" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
@@ -107,7 +109,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerRegCom" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.regCom" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">Nr Reg Com</span>
         </div>
@@ -115,13 +117,13 @@
     </div>
   </div>
 
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Cont</span>
         </div>
-        <input [(ngModel)]="supplier.supplierAccount" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="supplier.account" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
@@ -130,7 +132,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerAccount" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.account" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">Cont</span>
         </div>
@@ -138,13 +140,13 @@
     </div>
   </div>
 
-  <div class="row" style="">
+  <div class="row">
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-sm">Banca</span>
         </div>
-        <input [(ngModel)]="supplier.supplierBank" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="supplier.bank" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
       </div>
     </div>
     <div class="col-md-2"></div>
@@ -153,7 +155,7 @@
     <div class="col-md-2"></div>
     <div class="col-md-3">
       <div class="input-group input-group-sm mb-3">
-        <input [(ngModel)]="buyer.buyerBank" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+        <input [(ngModel)]="buyer.bank" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
         <div class="input-group-append">
           <span class="input-group-text" id="inputGroup-sizing-sm">Banca</span>
         </div>
@@ -165,14 +167,14 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Denumire produs/servicii</th>
+        <th scope="col" style="width: 60%;">Denumire produs/servicii</th>
         <th scope="col">Cantitate</th>
         <th scope="col">Pret RON</th>
         <th scope="col">Actiuni</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let article of articles; let i = index" [attr.data-index]="i">
+      <tr *ngFor="let article of lines; let i = index" [attr.data-index]="i">
         <th scope="row">{{i+1}}</th>
         <td>
             <div class="input-group mb-3">
@@ -185,25 +187,39 @@
                 <input [(ngModel)]="article.name" type="text" class="form-control" aria-label="Text input with dropdown button">
               </div>
         </td>
-        <td> <input [(ngModel)]="article.qty" type="text" class="form-control"></td>
-        <td> <input [(ngModel)]="article.price" type="text" class="form-control"></td>
-        <td> <button (click)="removeLine(article, articles)" type="button" class="btn btn-danger" style="width : 100%">Sterge</button></td>
+        <td> <input [(ngModel)]="article.qty" type="number" class="form-control"></td>
+        <td> <input [(ngModel)]="article.price" (input)="updateTotalAmount()" type="number" class="form-control"></td>
+        <td> <button (click)="removeLine(article, articles)" type="button" class="btn btn-danger" style="width : 100%"><fa name="trash"></fa></button></td>
       </tr>
     </tbody>
   </table>
 
   <div class="row">
     <div class="col-md-3">
-        <button (click)="addLine()" type="button" class="btn btn-success">Adauga linie</button>
+        <button (click)="addLine()" style="width: 100%;" type="button" class="btn btn-success"><fa name="plus"></fa> Adauga linie</button>
     </div>
-    <div class="col-md-6"></div>
+    <div class="col-md-6">
+    </div>
     <div class="col-md-3">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">TOTAL:</span>
             </div>
-            <input type="text" class="form-control" placeholder="RON" aria-label="Username" aria-describedby="basic-addon1">
+            <input disabled [(ngModel)]="totalAmount" type="number" class="form-control" placeholder="RON" aria-label="Username" aria-describedby="basic-addon1">
           </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="input-group input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Observatii</span>
+        </div>
+        <input [(ngModel)]="observations" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <button (click)="downloadFile()" type="button" style="width: 100%;"class="btn btn-info"> <fa name="download"></fa> Descarca</button>
     </div>
   </div>
 </div>
