@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { TouchSequence } from 'selenium-webdriver';
+import { environment } from '../environments/environment';
 
 export interface Line {
   name: string;
@@ -134,7 +133,7 @@ export class AppComponent {
     headersObject.append('Content-Type', 'application/x-www-form-urlencoded');
     headersObject.append('Cache-Control', 'no-cache');
 
-    this.http.post('http://192.168.1.14:8088/document/generate', details, {responseType: "blob", headers: headersObject, withCredentials: true}).subscribe(data => {
+    this.http.post(environment.serverUrl, details, {responseType: "blob", headers: headersObject, withCredentials: true}).subscribe(data => {
       //this.blob = new Blob([data], {type: 'application/pdf'});
 
       var downloadURL = window.URL.createObjectURL(data);
